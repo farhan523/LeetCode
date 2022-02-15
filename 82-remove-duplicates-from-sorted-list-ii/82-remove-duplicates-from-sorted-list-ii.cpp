@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        map<int,int> tmp;
+        unordered_map<int,int> tmp;
         ListNode* tempHead = head;
         ListNode* prev = NULL;
         while(tempHead != NULL){
