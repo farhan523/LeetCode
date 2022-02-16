@@ -2,7 +2,7 @@ class Solution {
 public:
    int lengthOfLongestSubstring(string s)
 {
-    set<char> tmp;
+    unordered_set<char> tmp;
     int longestSize = 0;
     int soFar = 0;
     int fast = 0;
