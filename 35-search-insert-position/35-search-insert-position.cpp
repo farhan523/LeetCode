@@ -28,15 +28,13 @@ public:
                         return r + 1;
                         return l + 1;
             }
-        if(r < l){
+        
             if(arr[0] < x)
                 return 1;
             return 0;
-        }
         
-       if(arr[l] > x)
-           return l;
-        else return r + 1;
+        
+      
        
     }
     
