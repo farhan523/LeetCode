@@ -14,16 +14,38 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        vector<int> vec1;
-        vector<int> vec2;
-        while(head != NULL){
-            
-            vec1.push_back(head->val);
-            head = head->next;
-            
+        if(head->next == NULL)
+                return true;
+        ListNode* slow = head;
+        ListNode* fast = head;
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        vec2 = vec1;
-        reverse(vec1.begin(), vec1.end());
-      return vec2 == vec1;
+        ListNode* middle = slow;
+        ListNode* prev = NULL;
+        while(slow != NULL){
+            ListNode* next = slow->next;
+            slow->next = prev;
+            prev = slow;
+            slow = next;
+        }
+        while(true){
+            if(head->val != prev->val)
+                return false;
+            head = head->next;
+            if(head == prev && head->val == prev->val)
+                return true;
+            else if(head == prev){
+                return false;
+            }
+            prev = prev->next;
+             if(head == prev && head->val == prev->val)
+                return true;
+             else if(head == prev){
+                return false;
+            }
+        }
+        return true;
     }
 };
