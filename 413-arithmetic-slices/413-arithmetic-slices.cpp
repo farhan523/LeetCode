@@ -11,14 +11,13 @@ public:
         {
             if(nums[i] - nums[i -1] == prevDiff && slow - fast >=1){
                 count += slow - fast;
-                fast--;
+               
             }else if (nums[i] - nums[i -1] != prevDiff){
                 prevDiff = nums[i] - nums[i - 1];
                  slow = fast;
-                fast --;
-            }else{
-                fast--;
+               
             }
+            fast--;
             
         }  
         return count ;
