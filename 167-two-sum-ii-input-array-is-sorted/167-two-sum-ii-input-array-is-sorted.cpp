@@ -7,15 +7,17 @@ class Solution
             vector<int> res;
             int lPtr = 0;
             int rPtr = numbers.size() - 1;
+            int sum;
             while (lPtr < rPtr)
             {
-                if (numbers[lPtr] + numbers[rPtr] == target)
+                 sum = numbers[lPtr] + numbers[rPtr];
+                if ( sum == target)
                 {
                     res.push_back(lPtr + 1);
                     res.push_back(rPtr + 1);
                     return res;
                 }
-                else if (numbers[rPtr] > target || numbers[rPtr] + numbers[lPtr] > target)
+                else if (numbers[rPtr] > target || sum > target)
                     rPtr--;
                 else
                 {
