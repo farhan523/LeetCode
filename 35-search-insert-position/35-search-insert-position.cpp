@@ -43,6 +43,8 @@ public:
             return 0;
         if(nums[nums.size() -1] < target)
                 return nums.size();
-      return binarySearch(nums,0,nums.size() -1, target);
+        auto it = lower_bound(nums.begin(),nums.end(),target);
+        cout<<(it-nums.begin());
+      return (it - nums.begin());
     }
 };
