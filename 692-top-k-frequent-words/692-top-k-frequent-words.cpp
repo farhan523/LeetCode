@@ -3,7 +3,7 @@ class Solution
 {
     struct Compare
     {
-        bool operator()(Max a, Max b)
+        bool operator()(Max &a, Max &b)
         {
             if(a.first != b.first)
                 return a <b;
