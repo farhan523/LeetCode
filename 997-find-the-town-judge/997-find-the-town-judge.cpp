@@ -7,10 +7,10 @@ class Solution
                 return 1;
             set<int> people;
             unordered_map<int, int> mp;
-        
+
             for (int i = 0; i < trust.size(); i++)
                 people.insert(trust[i][0]);
-            if(people.size() != n-1)
+            if (people.size() != n - 1)
                 return -1;
             for (int i = 0; i < trust.size(); i++)
             {
