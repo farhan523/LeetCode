@@ -9,14 +9,7 @@ class Solution
                 digits[digits.size() - 1]++;
                 return digits;
             }
-            if (digits.size() == 1)
-            {
-                digits.clear();
-                digits = { 1,
-                    0
-                };
-                return digits;
-            }
+
             int k = digits.size() - 1;
             while (k >= 0 and digits[k] == 9)
             {
