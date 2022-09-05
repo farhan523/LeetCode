@@ -16,33 +16,37 @@ public:
 };
 */
 
-class Solution {
-public:
-    Node* connect(Node* root) {
-        if(root == NULL)
-            return {};
-        vector<Node*>res;
-        queue<Node*>q;
-        q.push(root);
-        while(!q.empty()){
-            int size = q.size();
-            while(size > 0){
-                if(q.front()->left)
-                    q.push(q.front()->left);
-                 if(q.front()->right)
-                    q.push(q.front()->right);
-                res.push_back(q.front());
-                q.pop();
-                size--;
+class Solution
+{
+    public:
+        Node* connect(Node *root)
+        {
+            if (root == NULL)
+                return {};
+            vector<Node*> res;
+            queue<Node*> q;
+            q.push(root);
+
+            while (!q.empty())
+            {
+                int size = q.size();
+                Node *prev = NULL;
+                while (size > 0)
+                {
+                    if (q.front()->left)
+                        q.push(q.front()->left);
+                    if (q.front()->right)
+                        q.push(q.front()->right);
+                    res.push_back(q.front());
+                    if (prev)
+                        prev->next = q.front();
+                    prev = q.front();
+
+                    q.pop();
+                    size--;
+                }
+                prev->next = NULL;
             }
-            res.push_back(NULL);
+            return root;
         }
-        
-        for(int i=0;i<res.size()-1;i++){
-            if(res[i] != NULL)
-                res[i]->next = res[i+1];
-           
-        }
-        return res[0];
-    }
 };
